@@ -13,8 +13,10 @@ function Article (rawDataObj) {
 
 Article.prototype.toHtml = function() {
   // TODO: Use Handlebars to render your articles. Get your template from the DOM and "compile" your template with Handlebars.
-
+let articleTemplate = $('#article-template').html();
+let templateShow = Handlebars.compile(articleTemplate);
   // REVIEW: If your template will use properties that aren't on the object yet, add them.
+  return templateShow(this);
   // Since your template can't hold any JS logic, we need to execute the logic here.
   // The result is added to the object as a new property, which can then be referenced by key in the template.
   // For example, you might want to display how old a post is, or say "(draft)" if it has no publication date:
